@@ -1,0 +1,8 @@
+/*! Place your custom styles here */
+.bar .logo {
+    max-height: 5em;
+    max-width: none;
+}
+.poziom-menu {
+    margin-top: 25px;
+}
