@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- for xml compliance -->
+<krpano version="1.0.8.14">
+    <!-- akcja wykonywana na starcie -->
+    <events onxmlcomplete="onxmlcompleteaction();"/>
+    <action name="onxmlcompleteaction">
+		firstloadcompleteaction();
+	</action>
+    <events onloadcomplete="onloadcompleteaction();"/>
+    <action name="onloadcompleteaction">
+		if(plugin[data].soundOn==false,stoppanosounds(),playpanosounds());
+	</action>
+    <action name="playpanosounds">
+		playbackgroundsound(%BASEDIR%/virtualtourdata/sounds/sound0.mp3,0,%1);
+	</action>
+    <action name="stoppanosounds">
+		stopbackgroundsound();
+	</action>
+    <action name="closepanoobjects">
+	</action>
+    <!--************** Panorama *******************************************************************-->
+    <!-- @File="virtualtour10.xml" @PanoName="Romantyczna ceremonia zaślubin pod wierzbą" @FilePath="" -->
+    <panoview h="0" v="0" fov="90"/>
+    <!-- parametry widoku -->
+    <view fisheye="0" limitview="range" hlookatmin="-180" hlookatmax="180" vlookatmin="-90" vlookatmax="90" maxpixelzoom="1.0" fovmax="90" fov="90" hlookat="0" vlookat="0"/>
+    <progress showwait="none"/>
+    <autorotate horizon="0" tofov="90" waittime="1" speed="5"/>
+    <!-- obraz podglądu -->
+    <preview url="virtualtourdata/virtualtour10/preview.jpg" type="CUBESTRIP" striporder="FRBLUD" details="16"/>
+    <!-- aktualnej panoramy -->
+    <image type="CUBE" multires="true" tilesize="611" baseindex="0">
+        <level tiledimagewidth="2441" tiledimageheight="2441">
+            <left url="virtualtourdata/virtualtour10/3/2/%v_%u.jpg"/>
+            <front url="virtualtourdata/virtualtour10/0/2/%v_%u.jpg"/>
+            <right url="virtualtourdata/virtualtour10/1/2/%v_%u.jpg"/>
+            <back url="virtualtourdata/virtualtour10/2/2/%v_%u.jpg"/>
+            <up url="virtualtourdata/virtualtour10/4/2/%v_%u.jpg"/>
+            <down url="virtualtourdata/virtualtour10/5/2/%v_%u.jpg"/>
+        </level>
+        <level tiledimagewidth="1220" tiledimageheight="1220">
+            <left url="virtualtourdata/virtualtour10/3/1/%v_%u.jpg"/>
+            <front url="virtualtourdata/virtualtour10/0/1/%v_%u.jpg"/>
+            <right url="virtualtourdata/virtualtour10/1/1/%v_%u.jpg"/>
+            <back url="virtualtourdata/virtualtour10/2/1/%v_%u.jpg"/>
+            <up url="virtualtourdata/virtualtour10/4/1/%v_%u.jpg"/>
+            <down url="virtualtourdata/virtualtour10/5/1/%v_%u.jpg"/>
+        </level>
+        <level tiledimagewidth="610" tiledimageheight="610">
+            <left url="virtualtourdata/virtualtour10/3/0/%v_%u.jpg"/>
+            <front url="virtualtourdata/virtualtour10/0/0/%v_%u.jpg"/>
+            <right url="virtualtourdata/virtualtour10/1/0/%v_%u.jpg"/>
+            <back url="virtualtourdata/virtualtour10/2/0/%v_%u.jpg"/>
+            <up url="virtualtourdata/virtualtour10/4/0/%v_%u.jpg"/>
+            <down url="virtualtourdata/virtualtour10/5/0/%v_%u.jpg"/>
+        </level>
+        <!-- mobile phone / iphone images -->
+        <mobile>
+            <left url="virtualtourdata/virtualtour10/3/mobile_face.jpg"/>
+            <front url="virtualtourdata/virtualtour10/0/mobile_face.jpg"/>
+            <right url="virtualtourdata/virtualtour10/1/mobile_face.jpg"/>
+            <back url="virtualtourdata/virtualtour10/2/mobile_face.jpg"/>
+            <up url="virtualtourdata/virtualtour10/4/mobile_face.jpg"/>
+            <down url="virtualtourdata/virtualtour10/5/mobile_face.jpg"/>
+        </mobile>
+        <!-- tablet pc / ipad images -->
+        <tablet>
+            <left url="virtualtourdata/virtualtour10/3/tablet_face.jpg"/>
+            <front url="virtualtourdata/virtualtour10/0/tablet_face.jpg"/>
+            <right url="virtualtourdata/virtualtour10/1/tablet_face.jpg"/>
+            <back url="virtualtourdata/virtualtour10/2/tablet_face.jpg"/>
+            <up url="virtualtourdata/virtualtour10/4/tablet_face.jpg"/>
+            <down url="virtualtourdata/virtualtour10/5/tablet_face.jpg"/>
+        </tablet>
+    </image>
+    <!--************** Hotspoty i Flary ***********************************************************-->
+    <lensflare name="LENS0" set="DEFAULT" visible="true" ath="514.183" atv="-24.4149"/>
+    <hotspot name="spot22" hview="0" vview="0" fovview="90" hcenter="52.692" vcenter="4.17722" onclick="looktohotspot(get(name),get(view.fovmin),smooth(400,20,100));mainloadpano(virtualtour9.xml);lookat(get(panoview.h),get(panoview.v),get(panoview.fov));wait(blend);lookto(get(hview),get(vview),get(fovview),smooth(100,20,50));" url="virtualtourdata/graphics/spots/spot0.png" crop="0|0|65|65" frame="0" lastframe="13" frameheight="65" framewidth="65" onloaded="set(stopSequence,false);animate(spot22,0.071);" onhover="showtext(Pawilon ogrodowy);" ath="52.692" atv="4.17722"/>
+    <action name="hidepanospotsaction">
+		set(hotspot[spot22].visible, false);
+	</action>
+    <action name="showpanospotsaction">
+		set(hotspot[spot22].visible, true);
+	</action>
+    <!-- zamknij wszystkie Hotspoty -->
+</krpano>
